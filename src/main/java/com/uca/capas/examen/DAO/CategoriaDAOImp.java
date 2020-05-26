@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -32,7 +33,8 @@ public class CategoriaDAOImp implements CategoriaDAO{
 		Categoria categoria=entityManager.find(Categoria.class, code);
 		return null;
 	}
-
+	
+	@Transactional
 	@Override
 	public void insertarLibro(Categoria categoria) throws DataAccessException {
 		try {

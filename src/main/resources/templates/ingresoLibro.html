@@ -6,14 +6,14 @@
 </head>
 <body>
 <form th:action="@{/guardarLib}" th:object="${libro}">
-	<label>Titulo: </label><input type="text" th:field="${libro.sTitulo}"><br>
-	<span th:error="*{libro.sTitulo}" style="color: #FF0000"></span><br>
+	<label>Titulo: </label><input type="text" th:field="${libro.sTitutlo}"><br>
+	<span th:error="*{sTitutlo}" style="color: #FF0000"></span><br>
 	
 	<label>Autor: </label><input type="text" th:field="${libro.sAutor}"><br>
-	<span th:error="*{libro.sAutor}" style="color: #FF0000"></span><br>
+	<span th:error="*{sAutor}" style="color: #FF0000"></span><br>
 	
 	<label>ISBN: </label><input type="text" th:field="${libro.isbn}"><br>
-	<span th:error="*{libro.isbn}" style="color: #FF0000"></span><br>
+	<span th:error="*{isbn}" style="color: #FF0000"></span><br>
 	
 	<select th:field="${libro.categoria.categoria}">
 		<option th:each="cat : ${categorias}" th:value="${cat.categoria}" th:text="${cat.scategoria}"></option>

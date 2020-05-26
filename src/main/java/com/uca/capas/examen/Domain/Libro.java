@@ -40,7 +40,7 @@ public class Libro {
 	private String isbn;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="cat_categoria")
+	@JoinColumn(name="c_categoria")
 	private Categoria categoria;
 
 	public Libro() {

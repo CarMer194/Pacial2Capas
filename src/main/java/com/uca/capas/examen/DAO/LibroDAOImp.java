@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -32,7 +33,8 @@ public class LibroDAOImp implements LibroDAO{
 		Libro libro=entityManager.find(Libro.class, code);
 		return libro;
 	}
-
+	
+	@Transactional
 	@Override
 	public void insertarLibro(Libro libro) throws DataAccessException {
 		try {
