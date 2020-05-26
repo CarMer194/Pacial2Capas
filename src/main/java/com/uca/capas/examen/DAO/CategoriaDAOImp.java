@@ -36,7 +36,7 @@ public class CategoriaDAOImp implements CategoriaDAO{
 	@Override
 	public void insertarLibro(Categoria categoria) throws DataAccessException {
 		try {
-			if(categoria.getCcategoria()==null) {
+			if(categoria.getCategoria()==null) {
 				entityManager.persist(categoria);
 			}else {
 				entityManager.merge(categoria);

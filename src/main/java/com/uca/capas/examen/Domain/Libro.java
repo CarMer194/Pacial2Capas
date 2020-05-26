@@ -35,24 +35,31 @@ public class Libro {
 	@Column(name="b_estado")
 	private Boolean bEstado;
 	
+	@Column(name="s_isbn")
+	@Size(max=10)
+	private String isbn;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="c_categoria")
-	private Integer cCategoria;
+	@JoinColumn(name="cat_categoria")
+	private Categoria categoria;
 
 	public Libro() {
 		super();
 	}
 
+	
 	public Libro(Integer cLibro, @Size(max = 500) String sTitutlo, @Size(max = 150) String sAutor, Date fIngreso,
-			Boolean bEstado, Integer cCategoria) {
+			Boolean bEstado, @Size(max = 10) String isbn, Categoria cCategoria) {
 		super();
 		this.cLibro = cLibro;
 		this.sTitutlo = sTitutlo;
 		this.sAutor = sAutor;
 		this.fIngreso = fIngreso;
 		this.bEstado = bEstado;
-		this.cCategoria = cCategoria;
+		this.isbn = isbn;
+		this.categoria = cCategoria;
 	}
+
 
 	public Integer getcLibro() {
 		return cLibro;
@@ -94,12 +101,30 @@ public class Libro {
 		this.bEstado = bEstado;
 	}
 
-	public Integer getcCategoria() {
-		return cCategoria;
+	public Categoria getcCategoria() {
+		return categoria;
 	}
 
-	public void setcCategoria(Integer cCategoria) {
-		this.cCategoria = cCategoria;
+	public void setcCategoria(Categoria cCategoria) {
+		this.categoria = cCategoria;
+	}
+
+
+	public String getIsbn() {
+		return isbn;
+	}
+
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	
+	public String estadoDelegate() {
+		if(this.bEstado) {
+			return "Activo";
+		}else {
+			return "Inactivo";
+		}
 	}
 	
 	

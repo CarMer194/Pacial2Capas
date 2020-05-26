@@ -21,39 +21,35 @@ public class Categoria {
 	@Id
 	@Column(name="c_categoria")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer ccategoria;
+	private Integer categoria;
 	
 	@NotNull
 	@Column(name="s_categoria")
 	@Size(max=50,message="El campo nombre no puede exceder de 50 caracteres")
 	private String scategoria;
 	
-	@OneToMany(mappedBy="cat_categoria",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="categoria",fetch=FetchType.EAGER)
 	private List<Libro> libros;
 
 	public Categoria() {
 		super();
 	}
 
-	
-
-	public Categoria(Integer ccategoria,
+	public Categoria(Integer categoria,
 			@Size(max = 50, message = "El campo nombre no puede exceder de 50 caracteres") String scategoria,
 			List<Libro> libros) {
 		super();
-		this.ccategoria = ccategoria;
+		this.categoria = categoria;
 		this.scategoria = scategoria;
 		this.libros = libros;
 	}
 
-
-
-	public Integer getCcategoria() {
-		return ccategoria;
+	public Integer getCategoria() {
+		return categoria;
 	}
 
-	public void setCcategoria(Integer ccategoria) {
-		this.ccategoria = ccategoria;
+	public void setCategoria(Integer categoria) {
+		this.categoria = categoria;
 	}
 
 	public String getScategoria() {
@@ -71,6 +67,8 @@ public class Categoria {
 	public void setLibros(List<Libro> libros) {
 		this.libros = libros;
 	}
+
+	
 	
 
 }
