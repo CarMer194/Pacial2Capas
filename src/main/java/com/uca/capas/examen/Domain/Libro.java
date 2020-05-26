@@ -101,12 +101,13 @@ public class Libro {
 		this.bEstado = bEstado;
 	}
 
-	public Categoria getcCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 
-	public void setcCategoria(Categoria cCategoria) {
-		this.categoria = cCategoria;
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 
